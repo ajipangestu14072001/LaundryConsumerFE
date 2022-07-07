@@ -1,7 +1,9 @@
 package koperasi.nu.laundry_consumer.view
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +12,7 @@ import koperasi.nu.laundry_consumer.R
 import koperasi.nu.laundry_consumer.adapter.HistoryAdapter
 import koperasi.nu.laundry_consumer.databinding.ActivityHistoryBinding
 import koperasi.nu.laundry_consumer.model.History
+import koperasi.nu.laundry_consumer.model.ResponseCookie
 import koperasi.nu.laundry_consumer.model.Transaksi
 import koperasi.nu.laundry_consumer.services.APIClient
 import koperasi.nu.laundry_consumer.services.APIInterface
@@ -63,10 +66,32 @@ class HistoryActivity : AppCompatActivity(), HistoryAdapter.HistoryAdapterCallba
 
     override fun onDelete(modelLaundry: Transaksi?) {
         val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
+        val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
+        val cookie = sharedPreferences.getString("token", "")
         alertDialogBuilder.setMessage("Hapus riwayat ini?")
         alertDialogBuilder.setPositiveButton("Ya, Hapus") { _, _ ->
-//            val uid: Int = modelLaundry.uid
-//            laundryViewModel.deleteDataById(uid)
+            val apiInterface =
+                APIClient().getClient(applicationContext).create(APIInterface::class.java)
+            apiInterface.deleteTransaksi("Bearer $cookie", modelLaundry?.idTransaksi)!!
+                .enqueue(object : Callback<ResponseCookie?> {
+                    override fun onResponse(
+                        call: Call<ResponseCookie?>,
+                        response: Response<ResponseCookie?>
+                    ) {
+                        if (response.body() != null) {
+                            Toast.makeText(
+                                this@HistoryActivity,
+                                response.body()!!.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponseCookie?>, t: Throwable) {
+                        Log.i("Ini Log", t.message!!)
+                    }
+                })
             Toast.makeText(
                 this@HistoryActivity,
                 "Data yang dipilih sudah dihapus",
