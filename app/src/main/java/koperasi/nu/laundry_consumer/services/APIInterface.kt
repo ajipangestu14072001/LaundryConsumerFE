@@ -2,12 +2,11 @@ package koperasi.nu.laundry_consumer.services
 
 import koperasi.nu.laundry_consumer.model.Login
 import koperasi.nu.laundry_consumer.model.Register
+import koperasi.nu.laundry_consumer.payload.BaseLayanan
 import koperasi.nu.laundry_consumer.payload.BaseLogin
 import koperasi.nu.laundry_consumer.payload.BaseRegister
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface APIInterface {
 
@@ -24,4 +23,11 @@ interface APIInterface {
     @Headers("Accept: application/json", "Content-Type: application/json")
     @POST("auth/karyawan/signin")
     fun getLoginKaryawan(@Body login: Login?): Call<BaseLogin?>?
+
+    @Headers("Accept: application/json", "Content-Type: application/json")
+    @GET("layanan/laundry/kategori")
+    fun getAllProductByKategori(
+        @Header("Authorization") auth: String?,
+        @Query("kategori") kategori: String?
+    ): Call<BaseLayanan?>?
 }

@@ -12,7 +12,7 @@ class APIClient {
     private val httpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
     fun getClient(context: Context?): Retrofit {
-        val builder = Retrofit.Builder().baseUrl("http://172.17.0.133:8082/api/")
+        val builder = Retrofit.Builder().baseUrl("http://192.168.43.250:8082/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(
                 OkHttpClient.Builder()

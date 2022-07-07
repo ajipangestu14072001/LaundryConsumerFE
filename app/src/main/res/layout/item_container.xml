@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layoutRootContainer"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/picLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            tools:srcCompat="@drawable/tokopedia" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            android:gravity="center_vertical"
+            android:text="Nama Bank"
+            android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/rbButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</LinearLayout>

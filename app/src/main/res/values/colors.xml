@@ -12,4 +12,6 @@
     <color name="primaryTextColor">#00a5ff</color>
     <color name="loginBkColor">#f0f0f0</color>
     <color name="whiteCardColor">#fff</color>
+    <color name="colorPrimary">#141A31</color>
+
 </resources>

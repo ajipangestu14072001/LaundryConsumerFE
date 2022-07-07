@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/bg_circle_radius.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/bg_login.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/drawable_splash_screen.xml" value="0.1815" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_add.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_login_bk.xml" value="0.1815" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_minus.xml" value="0.1815" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_round_delete_24.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_round_email_24.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_round_help_24.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_round_logout_24.xml" value="0.1815" />
@@ -14,14 +18,23 @@
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_round_phone_android_24.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_round_whatsapp_24.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/rounded_border_edittext.xml" value="0.1815" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/rounded_corners.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_account.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_bantuan.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_detail_history.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_history.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_laundry.xml" value="0.25" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_payment.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_profile.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_register.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/item_container.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/layout_bottomsheetdialog.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/layout_login.xml" value="0.33" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/layout_register.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/list_item_history.xml" value="0.2965811965811966" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/list_item_product.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/slide_item_container.xml" value="0.358695652173913" />
       </map>
     </option>

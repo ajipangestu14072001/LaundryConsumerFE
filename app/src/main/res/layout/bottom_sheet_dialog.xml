@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/artistContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/rectangle_swipe" />
+
+        <TextView
+            android:id="@+id/kategori_ca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:text="Payment"
+            android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bottomRv"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cirLoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Bayar"
+        app:cornerRadius="8dp" />
+
+
+</LinearLayout>

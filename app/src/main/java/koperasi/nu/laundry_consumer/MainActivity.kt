@@ -12,6 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import koperasi.nu.laundry_consumer.adapter.SliderAdapter
 import koperasi.nu.laundry_consumer.databinding.ActivityMainBinding
 import koperasi.nu.laundry_consumer.model.SliderItems
+import koperasi.nu.laundry_consumer.view.LaundryActivity
 import koperasi.nu.laundry_consumer.view.ProfileActivity
 import java.util.ArrayList
 import kotlin.math.abs
@@ -29,8 +30,31 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.Theme_LAUNDRY_CONSUMER)
         setContentView(view)
         initData()
+        val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
+        val username = sharedPreferences.getString("username", "")
+        binding!!.txtHistory.text = "$username Periksa Riwayat Pesananmu"
         binding!!.imageProfile.setOnClickListener {
             val intent = Intent(applicationContext, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+        binding!!.cuciBasah.setOnClickListener {
+            intent = Intent(this, LaundryActivity::class.java)
+            intent.putExtra("kategori", "Basah")
+            startActivity(intent)
+        }
+        binding!!.cucisetrika.setOnClickListener {
+            intent = Intent(this, LaundryActivity::class.java)
+            intent.putExtra("kategori", "Setrika")
+            startActivity(intent)
+        }
+        binding!!.cuciPremium.setOnClickListener {
+            intent = Intent(this, LaundryActivity::class.java)
+            intent.putExtra("kategori", "Premium")
+            startActivity(intent)
+        }
+        binding!!.cuciKering.setOnClickListener {
+            intent = Intent(this, LaundryActivity::class.java)
+            intent.putExtra("kategori", "Kering")
             startActivity(intent)
         }
     }
