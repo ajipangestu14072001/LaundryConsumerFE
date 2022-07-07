@@ -1,5 +1,6 @@
 package koperasi.nu.laundry_consumer.services
 
+import koperasi.nu.laundry_consumer.model.History
 import koperasi.nu.laundry_consumer.model.Login
 import koperasi.nu.laundry_consumer.model.Register
 import koperasi.nu.laundry_consumer.payload.BaseLayanan
@@ -30,4 +31,10 @@ interface APIInterface {
         @Header("Authorization") auth: String?,
         @Query("kategori") kategori: String?
     ): Call<BaseLayanan?>?
+
+    @Headers("Accept: application/json", "Content-Type: application/json")
+    @GET("transaksi/laundry")
+    fun getAllTransaksi(
+        @Header("Authorization") auth: String?
+    ): Call<History?>?
 }

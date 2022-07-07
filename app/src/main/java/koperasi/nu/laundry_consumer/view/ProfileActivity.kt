@@ -1,6 +1,7 @@
 package koperasi.nu.laundry_consumer.view
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -24,6 +25,14 @@ class ProfileActivity : AppCompatActivity() {
         binding!!.card2.setOnClickListener {
             val intent = Intent(applicationContext, BantuanActivity::class.java)
             startActivity(intent)
+        }
+
+        binding!!.card3.setOnClickListener {
+            val intent = Intent(applicationContext, LoginActivity::class.java)
+            val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
+            sharedPreferences.edit().remove("token").apply();
+            startActivity(intent)
+
         }
     }
 }

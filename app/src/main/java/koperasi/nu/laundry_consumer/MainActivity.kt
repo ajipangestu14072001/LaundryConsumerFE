@@ -12,6 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import koperasi.nu.laundry_consumer.adapter.SliderAdapter
 import koperasi.nu.laundry_consumer.databinding.ActivityMainBinding
 import koperasi.nu.laundry_consumer.model.SliderItems
+import koperasi.nu.laundry_consumer.view.HistoryActivity
 import koperasi.nu.laundry_consumer.view.LaundryActivity
 import koperasi.nu.laundry_consumer.view.ProfileActivity
 import java.util.ArrayList
@@ -55,6 +56,10 @@ class MainActivity : AppCompatActivity() {
         binding!!.cuciKering.setOnClickListener {
             intent = Intent(this, LaundryActivity::class.java)
             intent.putExtra("kategori", "Kering")
+            startActivity(intent)
+        }
+        binding!!.layoutHistory.setOnClickListener {
+            intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
         }
     }

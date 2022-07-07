@@ -1,9 +1,12 @@
 package koperasi.nu.laundry_consumer.view
 
+import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -80,6 +83,14 @@ class LaundryActivity : AppCompatActivity(), FetchRecyclerViewItems {
                     bottomSheetBehavior.peekHeight = Resources.getSystem().displayMetrics.heightPixels
                     bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
                 }
+                val detail = v.findViewById<Button>(R.id.cirLoginButton)
+                detail.setOnClickListener {
+                    val intent = Intent(this@LaundryActivity, DetailHistoryActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
+
             }
             bottomSheetDialog?.show()
         }
