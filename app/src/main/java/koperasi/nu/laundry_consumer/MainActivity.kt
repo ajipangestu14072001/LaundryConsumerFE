@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -33,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         initData()
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val username = sharedPreferences.getString("username", "")
+        val roles = sharedPreferences.getString("roles", "")
+        Toast.makeText(applicationContext, roles, Toast.LENGTH_SHORT).show()
         binding!!.txtHistory.text = "$username Periksa Riwayat Pesananmu"
         binding!!.imageProfile.setOnClickListener {
             val intent = Intent(applicationContext, ProfileActivity::class.java)

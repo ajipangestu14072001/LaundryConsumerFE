@@ -6,6 +6,7 @@ import koperasi.nu.laundry_consumer.model.Register
 import koperasi.nu.laundry_consumer.model.ResponseCookie
 import koperasi.nu.laundry_consumer.payload.BaseLayanan
 import koperasi.nu.laundry_consumer.payload.BaseLogin
+import koperasi.nu.laundry_consumer.payload.BaseLoginAdmin
 import koperasi.nu.laundry_consumer.payload.BaseRegister
 import retrofit2.Call
 import retrofit2.http.*
@@ -25,6 +26,10 @@ interface APIInterface {
     @Headers("Accept: application/json", "Content-Type: application/json")
     @POST("auth/karyawan/signin")
     fun getLoginKaryawan(@Body login: Login?): Call<BaseLogin?>?
+
+    @Headers("Accept: application/json", "Content-Type: application/json")
+    @POST("auth/konsumen/signup")
+    fun getRegisterKaryawan(@Body responseRegister: BaseLoginAdmin?): Call<BaseRegister?>?
 
     @Headers("Accept: application/json", "Content-Type: application/json")
     @GET("layanan/laundry/kategori")

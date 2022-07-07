@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import koperasi.nu.laundry_consumer.R
 import koperasi.nu.laundry_consumer.databinding.ActivityRegisterBinding
 import koperasi.nu.laundry_consumer.model.Register
+import koperasi.nu.laundry_consumer.payload.BaseLoginAdmin
 import koperasi.nu.laundry_consumer.payload.BaseRegister
 import koperasi.nu.laundry_consumer.payload.ResponseRegister
 import koperasi.nu.laundry_consumer.services.APIClient
@@ -33,38 +34,77 @@ class RegisterActivity : AppCompatActivity() {
             finish()
         }
         binding!!.rootLayout.cirLoginButton.setOnClickListener {
-            val register = Register(binding!!.rootLayout.email.text.toString(),binding!!.rootLayout.nama.text.toString(), binding!!.rootLayout.username.text.toString(), binding!!.rootLayout.telp.text.toString(), binding!!.rootLayout.password.text.toString())
-            val call: Call<BaseRegister?>? = apiInterface.getRegisterUser(register)
-            call?.enqueue(object : Callback<BaseRegister?> {
-                override fun onResponse(
-                    call: Call<BaseRegister?>,
-                    response: Response<BaseRegister?>
-                ) {
-                    dataArrayList = response.body()!!.data
-                    if (dataArrayList != null) {
-                        Toast.makeText(
-                            applicationContext,
-                            response.body()?.message.toString(),
-                            Toast.LENGTH_SHORT
-                        ).show()
+            val values: String? = intent.getStringExtra("admin")
+            if(values == null){
+                val register = Register(binding!!.rootLayout.email.text.toString(),binding!!.rootLayout.nama.text.toString(), binding!!.rootLayout.username.text.toString(), binding!!.rootLayout.telp.text.toString(), binding!!.rootLayout.password.text.toString())
+                val call: Call<BaseRegister?>? = apiInterface.getRegisterUser(register)
+                call?.enqueue(object : Callback<BaseRegister?> {
+                    override fun onResponse(
+                        call: Call<BaseRegister?>,
+                        response: Response<BaseRegister?>
+                    ) {
+                        dataArrayList = response.body()!!.data
+                        if (dataArrayList != null) {
+                            Toast.makeText(
+                                applicationContext,
+                                response.body()?.message.toString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
 
-                    } else {
+                        } else {
+                            Toast.makeText(
+                                applicationContext,
+                                "Terjadi Kesalahan",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    override fun onFailure(call: Call<BaseRegister?>, t: Throwable) {
                         Toast.makeText(
                             applicationContext,
-                            "Terjadi Kesalahan",
+                            "Invalid credentials",
                             Toast.LENGTH_SHORT
                         ).show()
+                        call.cancel()
                     }
-                }
-                override fun onFailure(call: Call<BaseRegister?>, t: Throwable) {
-                    Toast.makeText(
-                        applicationContext,
-                        "Invalid credentials",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    call.cancel()
-                }
-            })
+                })
+            }else{
+                val listA = listOf(values)
+                val register = BaseLoginAdmin(binding!!.rootLayout.email.text.toString(),binding!!.rootLayout.nama.text.toString(), binding!!.rootLayout.password.text.toString(), listA,binding!!.rootLayout.telp.text.toString(), binding!!.rootLayout.username.text.toString())
+                val call: Call<BaseRegister?>? = apiInterface.getRegisterKaryawan(register)
+                call?.enqueue(object : Callback<BaseRegister?> {
+                    override fun onResponse(
+                        call: Call<BaseRegister?>,
+                        response: Response<BaseRegister?>
+                    ) {
+                        dataArrayList = response.body()!!.data
+                        if (dataArrayList != null) {
+                            Toast.makeText(
+                                applicationContext,
+                                response.body()?.message.toString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        } else {
+                            Toast.makeText(
+                                applicationContext,
+                                "Terjadi Kesalahan",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    override fun onFailure(call: Call<BaseRegister?>, t: Throwable) {
+                        Toast.makeText(
+                            applicationContext,
+                            "Invalid credentials",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        call.cancel()
+                    }
+                })
+
+            }
+
         }
     }
 }

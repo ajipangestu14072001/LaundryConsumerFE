@@ -59,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
                             val editor = sharedPref.edit()
                             editor.putString("username", resource?.data?.get(0)?.username)
                             editor.putString("token", resource?.data?.get(0)?.token)
+                            editor.putString("roles", resource?.data?.get(0)?.roles.toString())
                             editor.apply()
                             startActivity(intent)
                             finish()
@@ -83,67 +84,74 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        binding!!.rootLayout.cirLoginButtonKaryawan.setOnClickListener {
-            if (validateUsername() && validatePassword()) {
-
-                val apiInterface =
-                    APIClient().getClient(applicationContext).create(APIInterface::class.java)
-                val login = Login(
-                    binding!!.rootLayout.email.text.toString(),
-                    binding!!.rootLayout.password.text.toString()
-                )
-                val call: Call<BaseLogin?>? = apiInterface.getLoginKaryawan(login)
-                call?.enqueue(object : Callback<BaseLogin?> {
-                    override fun onResponse(
-                        call: Call<BaseLogin?>,
-                        response: Response<BaseLogin?>
-                    ) {
-                        if (response.body()?.data?.get(0)?.token != null) {
-                            val resource: BaseLogin? = response.body()
-                            Toast.makeText(
-                                applicationContext,
-                                "Login successful",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            sharedPrefManager!!.saveSPBoolean(
-                                SharedPrefManager.SP_SUDAH_LOGIN,
-                                true
-                            )
-                            val intent = Intent(applicationContext, MainActivity::class.java)
-                            val sharedPref = getSharedPreferences("myKey", MODE_PRIVATE)
-                            val editor = sharedPref.edit()
-                            editor.putString("username", resource?.data?.get(0)?.username)
-                            editor.putString("token", resource?.data?.get(0)?.token)
-                            editor.apply()
-                            startActivity(intent)
-                            finish()
-                        } else {
-                            Toast.makeText(
-                                applicationContext,
-                                "Invalid credentials",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-
-                    override fun onFailure(call: Call<BaseLogin?>, t: Throwable) {
-                        Toast.makeText(
-                            applicationContext,
-                            "Invalid credentials",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        call.cancel()
-                    }
-                })
-
-            }
-        }
+//        binding!!.rootLayout.cirLoginButtonKaryawan.setOnClickListener {
+//            if (validateUsername() && validatePassword()) {
+//
+//                val apiInterface =
+//                    APIClient().getClient(applicationContext).create(APIInterface::class.java)
+//                val login = Login(
+//                    binding!!.rootLayout.email.text.toString(),
+//                    binding!!.rootLayout.password.text.toString()
+//                )
+//                val call: Call<BaseLogin?>? = apiInterface.getLoginKaryawan(login)
+//                call?.enqueue(object : Callback<BaseLogin?> {
+//                    override fun onResponse(
+//                        call: Call<BaseLogin?>,
+//                        response: Response<BaseLogin?>
+//                    ) {
+//                        if (response.body()?.data?.get(0)?.token != null) {
+//                            val resource: BaseLogin? = response.body()
+//                            Toast.makeText(
+//                                applicationContext,
+//                                "Login successful",
+//                                Toast.LENGTH_SHORT
+//                            ).show()
+//                            sharedPrefManager!!.saveSPBoolean(
+//                                SharedPrefManager.SP_SUDAH_LOGIN,
+//                                true
+//                            )
+//                            val intent = Intent(applicationContext, MainActivity::class.java)
+//                            val sharedPref = getSharedPreferences("myKey", MODE_PRIVATE)
+//                            val editor = sharedPref.edit()
+//                            editor.putString("username", resource?.data?.get(0)?.username)
+//                            editor.putString("token", resource?.data?.get(0)?.token)
+//                            editor.apply()
+//                            startActivity(intent)
+//                            finish()
+//                        } else {
+//                            Toast.makeText(
+//                                applicationContext,
+//                                "Invalid credentials",
+//                                Toast.LENGTH_SHORT
+//                            ).show()
+//                        }
+//                    }
+//
+//                    override fun onFailure(call: Call<BaseLogin?>, t: Throwable) {
+//                        Toast.makeText(
+//                            applicationContext,
+//                            "Invalid credentials",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                        call.cancel()
+//                    }
+//                })
+//
+//            }
+//        }
 
         binding!!.rootLayout.toSignup.setOnClickListener {
             val intent = Intent(applicationContext, RegisterActivity::class.java)
             startActivity(intent)
             finish()
 
+        }
+
+        binding!!.rootLayout.toSignupAdmin.setOnClickListener {
+            val intent = Intent(applicationContext, RegisterActivity::class.java)
+            intent.putExtra("admin", "admin")
+            startActivity(intent)
+            finish()
         }
 
     }
