@@ -33,12 +33,11 @@ class RecyclerViewAdapter(
         var totalCount: Double
         holder.title.text = modal.namaLayanan
         holder.harga.text = modal.harga.toString()
-//        holder.cardItems.setOnClickListener {
-////            val intent = Intent(mcontext, PaymentActivity::class.java)
-////            intent.putExtra("total", totalCount.toString())
-////            mcontext.startActivity(intent)
-//            listener?.onItemClicked(it, totalCount)
-//        }
+        holder.cardItems.setOnClickListener {
+            totalCount = (modal.harga * itemCount);
+            listener?.onItemClicked(it, totalCount, modal)
+
+        }
         holder.imageAdd1.setOnClickListener {
             itemCount += 1
             holder.tvPriceKaos.text = itemCount.toString()

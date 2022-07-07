@@ -17,8 +17,10 @@
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_round_phone_24.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_round_phone_android_24.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_round_whatsapp_24.xml" value="0.1815" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/ic_spinner.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/rounded_border_edittext.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/rounded_corners.xml" value="0.1815" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/drawable/spinner_background.xml" value="0.1815" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_account.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_bantuan.xml" value="0.358695652173913" />
@@ -30,6 +32,7 @@
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_payment.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_profile.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_register.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/activity_tambah_layanan.xml" value="0.22" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/item_container.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/layout_bottomsheetdialog.xml" value="0.358695652173913" />
         <entry key="..\:/Users/ROOT/AndroidStudioProjects/LAUNDRY_CONSUMER/app/src/main/res/layout/layout_login.xml" value="0.33" />

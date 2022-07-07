@@ -50,22 +50,22 @@ class MainActivity : AppCompatActivity() {
         }
         binding!!.cuciBasah.setOnClickListener {
             intent = Intent(this, LaundryActivity::class.java)
-            intent.putExtra("kategori", "Basah")
+            intent.putExtra("kategori", "FASTCLEAN")
             startActivity(intent)
         }
         binding!!.cucisetrika.setOnClickListener {
             intent = Intent(this, LaundryActivity::class.java)
-            intent.putExtra("kategori", "Setrika")
+            intent.putExtra("kategori", "DEEPCLEAN")
             startActivity(intent)
         }
         binding!!.cuciPremium.setOnClickListener {
             intent = Intent(this, LaundryActivity::class.java)
-            intent.putExtra("kategori", "Premium")
+            intent.putExtra("kategori", "RECOLOR")
             startActivity(intent)
         }
         binding!!.cuciKering.setOnClickListener {
             intent = Intent(this, LaundryActivity::class.java)
-            intent.putExtra("kategori", "Kering")
+            intent.putExtra("kategori", "REGULER")
             startActivity(intent)
         }
         binding!!.layoutHistory.setOnClickListener {

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,8 +18,7 @@ import koperasi.nu.laundry_consumer.adapter.PaymentAdapter
 import koperasi.nu.laundry_consumer.adapter.RecyclerViewAdapter
 import koperasi.nu.laundry_consumer.callback.FetchRecyclerViewItems
 import koperasi.nu.laundry_consumer.databinding.ActivityLaundryBinding
-import koperasi.nu.laundry_consumer.model.Layanan
-import koperasi.nu.laundry_consumer.model.Payment
+import koperasi.nu.laundry_consumer.model.*
 import koperasi.nu.laundry_consumer.payload.BaseLayanan
 import koperasi.nu.laundry_consumer.services.APIClient
 import koperasi.nu.laundry_consumer.services.APIInterface
@@ -30,6 +30,7 @@ import retrofit2.Response
 class LaundryActivity : AppCompatActivity(), FetchRecyclerViewItems {
     private var binding: ActivityLaundryBinding? = null
     private var dataArrayList: List<Layanan>? = null
+    private var dataArrayList2: List<Transaksi>? = null
     private var recyclerViewAdapter: RecyclerViewAdapter? = null
     private var bottomSheetDialog: BottomSheetDialog? = null
 
@@ -71,33 +72,67 @@ class LaundryActivity : AppCompatActivity(), FetchRecyclerViewItems {
                 call.cancel()
             }
         })
-        binding!!.layaoutPayment.setOnClickListener{
-            if (bottomSheetDialog == null){
-                bottomSheetDialog = BottomSheetDialog(this@LaundryActivity);
-                val v = layoutInflater.inflate(R.layout.bottom_sheet_dialog,null)
-                setRecyclerViewItem(v)
-                bottomSheetDialog?.setContentView(v)
-                val frameLayout = bottomSheetDialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
-                if(frameLayout != null){
-                    val bottomSheetBehavior = BottomSheetBehavior.from(frameLayout)
-                    bottomSheetBehavior.peekHeight = Resources.getSystem().displayMetrics.heightPixels
-                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
-                }
-                val detail = v.findViewById<Button>(R.id.cirLoginButton)
-                detail.setOnClickListener {
-                    val intent = Intent(this@LaundryActivity, DetailHistoryActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
 
-
-            }
-            bottomSheetDialog?.show()
-        }
     }
 
     override fun onItemClicked(view: View, total: Double, layanan : Layanan) {
-        binding!!.txtPayment.text = "Lakukan Pemabayaran RP. $total"
+        if (bottomSheetDialog == null){
+            bottomSheetDialog = BottomSheetDialog(this@LaundryActivity);
+            val v = layoutInflater.inflate(R.layout.bottom_sheet_dialog,null)
+            setRecyclerViewItem(v)
+            bottomSheetDialog?.setContentView(v)
+            val frameLayout = bottomSheetDialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+            if(frameLayout != null){
+                val bottomSheetBehavior = BottomSheetBehavior.from(frameLayout)
+                bottomSheetBehavior.peekHeight = Resources.getSystem().displayMetrics.heightPixels
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+            val detail = v.findViewById<Button>(R.id.cirLoginButton)
+            detail.setOnClickListener {
+//                val intent = Intent(this@LaundryActivity, DetailHistoryActivity::class.java)
+//                startActivity(intent)
+//                finish()
+                val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
+                val cookie = sharedPreferences.getString("token", "")
+                val apiInterface =
+                    APIClient().getClient(applicationContext).create(APIInterface::class.java)
+                val register = TransaksiHistory(2, "true", "2022-07-05T04:40:16.000+00:00","2022-07-05T04:40:16.000+00:00", "2022-07-05T04:40:16.000+00:00",10000)
+                val call: Call<History?>? = apiInterface.addTransaksi(register,"Bearer $cookie")
+                call?.enqueue(object : Callback<History?> {
+                    override fun onResponse(
+                        call: Call<History?>,
+                        response: Response<History?>
+                    ) {
+                        dataArrayList2 = response.body()!!.data
+                        if (dataArrayList != null) {
+                            Toast.makeText(
+                                applicationContext,
+                                response.body()?.message.toString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        } else {
+                            Toast.makeText(
+                                applicationContext,
+                                "Terjadi Kesalahan",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    override fun onFailure(call: Call<History?>, t: Throwable) {
+                        Toast.makeText(
+                            applicationContext,
+                            "Invalid credentials",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        call.cancel()
+                    }
+                })
+            }
+
+
+        }
+        bottomSheetDialog?.show()
 
     }
 

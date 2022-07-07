@@ -1,5 +1,6 @@
 package koperasi.nu.laundry_consumer.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,5 +15,9 @@ class AdminDashboardActivity : AppCompatActivity() {
         val view : View = binding!!.root
         setTheme(R.style.Theme_LAUNDRY_CONSUMER)
         setContentView(view)
+        binding!!.tambahJenis.setOnClickListener {
+            intent = Intent(this@AdminDashboardActivity, TambahLayananActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

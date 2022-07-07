@@ -1,9 +1,6 @@
 package koperasi.nu.laundry_consumer.services
 
-import koperasi.nu.laundry_consumer.model.History
-import koperasi.nu.laundry_consumer.model.Login
-import koperasi.nu.laundry_consumer.model.Register
-import koperasi.nu.laundry_consumer.model.ResponseCookie
+import koperasi.nu.laundry_consumer.model.*
 import koperasi.nu.laundry_consumer.payload.BaseLayanan
 import koperasi.nu.laundry_consumer.payload.BaseLogin
 import koperasi.nu.laundry_consumer.payload.BaseLoginAdmin
@@ -30,6 +27,15 @@ interface APIInterface {
     @Headers("Accept: application/json", "Content-Type: application/json")
     @POST("auth/konsumen/signup")
     fun getRegisterKaryawan(@Body responseRegister: BaseLoginAdmin?): Call<BaseRegister?>?
+
+
+    @Headers("Accept: application/json", "Content-Type: application/json")
+    @POST("layanan/laundry")
+    fun addLayanan(@Body baseLayanan: BaseAddLayanan?,@Header("Authorization") auth: String?): Call<BaseLayanan?>?
+
+    @Headers("Accept: application/json", "Content-Type: application/json")
+    @POST("transaksi/laundry")
+    fun addTransaksi(@Body transaksi: TransaksiHistory?,@Header("Authorization") auth: String?): Call<History?>?
 
     @Headers("Accept: application/json", "Content-Type: application/json")
     @GET("layanan/laundry/kategori")

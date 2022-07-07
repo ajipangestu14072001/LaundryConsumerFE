@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.TambahLayananActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.AdminDashboardActivity"
             android:exported="false" />
         <activity
