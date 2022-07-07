@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".view.AdminDashboardActivity">
+
+    <Button
+        android:id="@+id/exportData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Export Data"/>
+
+    <Button
+        android:id="@+id/tambahJenis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah Jneis"/>
+
+    <Button
+        android:id="@+id/ListPegaqwai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lihat Data Pegawai"/>
+
+
+</LinearLayout>

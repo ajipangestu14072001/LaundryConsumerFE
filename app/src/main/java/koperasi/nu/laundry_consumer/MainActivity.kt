@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 import koperasi.nu.laundry_consumer.adapter.SliderAdapter
 import koperasi.nu.laundry_consumer.databinding.ActivityMainBinding
 import koperasi.nu.laundry_consumer.model.SliderItems
+import koperasi.nu.laundry_consumer.view.AdminDashboardActivity
 import koperasi.nu.laundry_consumer.view.HistoryActivity
 import koperasi.nu.laundry_consumer.view.LaundryActivity
 import koperasi.nu.laundry_consumer.view.ProfileActivity
@@ -35,6 +37,11 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE)
         val username = sharedPreferences.getString("username", "")
         val roles = sharedPreferences.getString("roles", "")
+        Log.i("roles", roles.toString())
+        if (roles.equals("[ROLE_ADMIN]")){
+            intent = Intent(this, AdminDashboardActivity::class.java)
+            startActivity(intent)
+        }
         Toast.makeText(applicationContext, roles, Toast.LENGTH_SHORT).show()
         binding!!.txtHistory.text = "$username Periksa Riwayat Pesananmu"
         binding!!.imageProfile.setOnClickListener {
